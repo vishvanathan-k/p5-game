@@ -1,0 +1,52 @@
+let initialY = 175
+let initialX = 300
+let paraDeployed = false
+function setup() {
+    createCanvas(750, 750)
+}
+
+function draw() {
+    background(0)
+    if (!dead(initialX, initialY)) {
+        let c = color(255, 255, 255)
+        fill(c)
+        rect(400, 700, 100, 50)
+        ball(initialX, initialY)
+        if (keyIsDown(LEFT_ARROW)) {
+            initialX -= 1
+        } else if (keyIsDown(RIGHT_ARROW)) {
+            initialX += 1
+        }
+        if (paraDeployed) {
+            parachute(initialX, initialY)
+        }
+        if (initialY + 75 == 750 && 400 >= initialX - 50 && initialX - 50 <= 500) {
+            initialY += 0
+        }
+        else if (paraDeployed) {
+            initialY += 0.245 
+        }
+        else {
+            initialY += 0.49
+        }
+    }
+}
+
+function keyPressed() {
+    if (keyCode === 32) {
+        paraDeployed = true
+    }
+}
+
+function dead(x, y) {
+    if (x > 750 || x < 0 || y < 0 || y > 750) return true
+}
+function ball(x, y) {
+    ellipse(x, y, 50)
+}
+function parachute(x, y) {
+    arc(x, y - 50, 100, -100, PI, PI + PI)
+    line(x - 50, y - 50, x, y)
+    line(x + 50, y - 50, x, y)
+    //square(x-12,y+50,25)
+}
