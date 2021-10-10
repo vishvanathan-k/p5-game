@@ -29,7 +29,7 @@ function draw() {
             initialY += 0.49
         }
         else {
-            initialY += 0.49 + 0.5*vy
+            initialY += 0.49 + 0.6*vy
         }
         vy = initialY - prevY;
         prevY = initialY;
