@@ -1,5 +1,5 @@
 let initialY = 50
-let initialX = 300
+let initialX = 0
 let paraDeployed = false
 let vy = 0
 let rectX = 0
@@ -7,6 +7,8 @@ function setup() {
     createCanvas(750, 750)
     rand = random(1)
     rectX = rand*750;
+    rand = random(1);
+    initialX = rand*750;
 }
 
 function draw() {
