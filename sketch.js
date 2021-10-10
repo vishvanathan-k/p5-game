@@ -3,8 +3,11 @@ let initialX = 300
 let paraDeployed = false
 let vy = 0
 let prevY = 175
+let rectX = 0
 function setup() {
     createCanvas(750, 750)
+    rand = random(1)
+    rectX = rand*750;
 }
 
 function draw() {
@@ -12,7 +15,7 @@ function draw() {
     if (!dead(initialX, initialY)) {
         let c = color(255, 255, 255)
         fill(c)
-        rect(400, 700, 100, 50)
+        rect(rectX, 700, 100, 50)
         ball(initialX, initialY)
         if (keyIsDown(LEFT_ARROW)) {
             initialX -= 1
