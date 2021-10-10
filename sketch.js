@@ -1,8 +1,7 @@
-let initialY = 175
+let initialY = 50
 let initialX = 300
 let paraDeployed = false
 let vy = 0
-let prevY = 175
 let rectX = 0
 function setup() {
     createCanvas(750, 750)
@@ -32,10 +31,9 @@ function draw() {
             initialY += 0.49
         }
         else {
-            initialY += 0.49 + 0.6*vy
+            initialY += 0.49 + vy
         }
-        vy = initialY - prevY;
-        prevY = initialY;
+        vy += 0.01;
     }
 }
 
