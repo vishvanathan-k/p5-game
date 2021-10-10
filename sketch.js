@@ -1,6 +1,8 @@
 let initialY = 175
 let initialX = 300
 let paraDeployed = false
+let vy = 0
+let prevY = 175
 function setup() {
     createCanvas(750, 750)
 }
@@ -24,11 +26,13 @@ function draw() {
             initialY += 0
         }
         else if (paraDeployed) {
-            initialY += 0.245 
-        }
-        else {
             initialY += 0.49
         }
+        else {
+            initialY += 0.49 + 0.5*vy
+        }
+        vy = initialY - prevY;
+        prevY = initialY;
     }
 }
 
