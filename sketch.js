@@ -43,7 +43,7 @@ function keyPressed() {
 }
 
 function dead(x, y) {
-    if (x > 750 || x < 0 || y < 0 || y > 750) return true
+    if (x+25 > 750 || x-25 < 0 || y-25 < 0 || y+25 > 750) return true
 }
 function ball(x, y) {
     ellipse(x, y, 50)
